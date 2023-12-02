@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Add icon library -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+  <style>
+  /* .btn {
+    background-color: #753232;
+    border: none;
+    color: white;
+    padding: 12px 16px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  /* Darker background on mouse-over */
+  /* .btn:hover {
+    background-color: #4a1919;
+  } */ 
+
+/* @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600);
+@import 'https://fonts.googleapis.com/css?family=Montserrat:300,400,700'; */
+
+*, *:before, *:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+@import url(https://fonts.googleapis.com/css?family=PT+Sans:400,700);
+:root{
+  --primary:#b3291f;
+  --secondary:#232B38;
+  --ternary:#131212;
+  --danger:#FE4545;
+  --pure:#FEFEFE;
+  --light:#F0F0F0;
+  --heaven:#FFFFFF;
+  --footer:#2D333F;
+}
+html {
+	/*background: linear-gradient(90deg, #00c6ff 10%, #0072ff 90%);*/
+	/*background: linear-gradient(90deg, red 10%, black 2000%);  */
+    background-image: url('{{ url_for ('static', filename = 'image.png') }}');
+	/*background-image: 'background.jpg'*/
+	font-family: 'PT Sans', Helvetica, Arial, sans-serif;
+	padding-top: 50px;
+}
+
+h1 {
+	text-shadow: 1px 1px 10px rgba(black, .5);
+}
+
+h1, h2 {
+	text-align: center;
+	color: white;
+	font-size: 2.5em;
+	line-height: 1.3em;
+	font-weight: 300;
+}
+
+h2 {
+	margin-top: 100px;
+	font-size: 1.3em;
+	font-style: italic;
+	font-weight: 100;
+}
+
+h3 {
+	text-align: center;
+	color: white;
+	margin-top: 100px;
+	font-size: 2.0em;
+	font-style: bold;
+	font-weight: 300;
+}
+
+.bodys {
+	width: 100%;
+  height: 115px;
+	box-sizing: border-box;
+}
+
+input {
+	box-sizing: border-box;
+	font-size: 13px;
+	vertical-align: top;
+}
+
+.wrapper {
+	text-align: center;
+	position: relative;
+	height: 80px;
+	font-size: 0;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+.search {
+	padding: 0 30px;
+	font-size: 18px;
+	width: 60%;
+	max-width: 400px;
+	height: 80px;
+	border: 1px solid darken(white, 30%);
+	border-radius: 20px 0 0 20px;
+}
+
+
+body {
+  /*background: #105469;*/
+  /* font-family: Montserrat, sans-serif; */
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+table {
+  background: #171717;
+  /*background: #78051a;*/
+  border-radius: 0.25em;
+  border-collapse: collapse;
+  /*margin: 1em;*/
+}
+
+table.customers {
+    width:80%; 
+    margin-left:10%; 
+    margin-right:10%;
+    cursor: pointer;
+  }
+
+th {
+  border-bottom: 1px solid #364043;
+  color: #E2B842;
+  font-size: 0.85em;
+  font-weight: 600;
+  padding: 0.5em 1em;
+  text-align: left;
+}
+td {
+  color: #fff;
+  font-weight: 400;
+  padding: 0.65em 1em;
+}
+.disabled td {
+  color: #4F5F64;
+}
+tbody tr {
+  transition: background 0.25s ease;
+}
+tbody tr:hover {
+  background: #ff0000;
+  
+}
+.button {
+      font-weight: 300;
+      color: rgb(255, 255, 255);
+      font-size: 1.2em;
+      text-decoration: none;
+      /* border: 1px solid #ff0000; */
+      padding: 1em;
+      background: var(--primary);
+      border-radius: 3px;
+      float: left;
+      margin: 6em 0 0 -155px;
+      left: 50%;
+      position: relative;
+      cursor: pointer;
+      transition: all .3s linear;
+    }
+
+    .button:hover {
+      background-color: #fff;
+      color: #000000;
+        box-shadow: 0px 0px 5px -2px grey;
+    }
+
+
+
+  </style>
+  </head>
+  <body>
+
+  <!-- <form action="https://movies-recommender-app.herokuapp.com/home">
+  <button class="btn"><i class="fa fa-home"></i> Home</button>
+  </form> -->
+
+
+  <div class="bodys">
+    <h1>Top 5 Recommendations similar to "{{input_movie}}": </h1>
+  <!-- <h1>Netflix Movie/TV Show Recommender<br /> <link rel="stylesheet" href="/static/stylerec.css" /></h1> -->
+  <!-- <div class="wrapper">
+    <link rel="stylesheet" href="/static/stylerec.css" /> -->
+    <!-- <form action="predict" method="post"> -->
+    <!-- <input name="movie" class="search" type="text" id="movie" placeholder="Movie name here" /> -->
+    <!-- <link rel="stylesheet" href="/static/stylerec.css" /> -->
+    
+    <!-- <button class="submit" type="submit" class="btn btn-primary btn-block btn-large">Submit</button> -->
+  <!-- </form> -->
+    <!-- <link rel="stylesheet" href="/static/stylerec.css" /> -->
+  </div>
+
+
+
+
+ 
+  <!-- <form action="rec.html">
+  <button class="btn"><i class="fa fa-home"></i> Home</button>
+  </form>   -->
+
+<table id="customers" class="customers">
+
+  <thead>
+    
+    <tr>
+      <th>Title
+      <th>Plot
+      
+  </thead>
+    <tbody>
+    <tr>
+      <td>{{ movies[0][0].title() }}
+      <td>{{ movies[0][1] }}
+      
+    <tr>
+      <td>{{ movies[1][0].title() }}
+      <td>{{ movies[1][1] }}
+      
+    <tr >
+      <td>{{ movies[2][0].title() }}
+      <td>{{ movies[2][1] }}
+      
+    <tr>
+      <td>{{ movies[3][0].title() }}
+      <td>{{ movies[3][1] }}
+      
+    <tr>
+      <td>{{ movies[4][0].title() }}
+      <td>{{ movies[4][1] }}
+      
+  </tbody>
+  </table>
+
+<br>
+<a class="button"  href="{{url_for('home')}}" onClick="goBack()"><i class="fas fa-home" style="font-size: 15px;"></i> Go Back to Home Page</a>
+<br>
+
+<!-- <style>
+/* a:link {
+  color: #ab584f;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #753b35;
+  background-color: transparent;
+  text-decoration: underline;
+} */
+
+</style> -->
+
+<!-- <p><font color="white">*The <a href="https://www.kaggle.com/carolzhangdc/imdb-5000-movie-dataset">dataset </a> is taken from Kaggle and consists of 5000 movies from IMDB.<br>
+ <a href="https://www.kaggle.com/carolzhangdc/imdb-5000-movie-dataset">*Link to the dataset</a>
+</font>
+</p> --> 
+
+<br>
+<br>
+<script>
+function goBack() {
+  window.history.back();
+}
+</script>
+</body>
+</head>
+</html>

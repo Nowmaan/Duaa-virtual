@@ -1,0 +1,291 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for ('static', filename='styleregister.css')}}">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&family=Sen:wght@400;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <title>Duaa-Virtual</title>
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="navbar-container">
+            <div class="logo-container">
+                <a href="" class="logo">Duaa-Virtual</a>
+            </div>
+            <div class="menu-container">
+                <ul class="menu-list">
+                    <a href="#"class="menu-list-item active">Home</a>
+                    <a href="#"class="menu-list-item">Movies</a>
+                    <a href="#"class="menu-list-item">Series</a>
+                    <a href="#"class="menu-list-item">Popular</a>
+                    <a href="#"class="menu-list-item">Trends</a>
+
+                </ul>
+
+            </div>
+            <!-- <div class="cont">
+                <form action="" class="search-bar">
+                    <input type="text" placeholder="search" name="" id="">
+                    <button type="submit"><i class="left-menu-icons fas fa-search"></i></button>
+                </form>
+            </div> -->
+            <!-- <a href="#" ><i class="left-menu-icons fas fa-search"></i></a> -->
+            <div class="menu-containers">
+                <a href="{{url_for('second')}}" class="menu-list-item active">Login</a>
+
+            </div>
+
+            <!-- <div class="gh"><a href="#" class="btn-xl">Buy plan</a></div> -->
+
+            <!-- <div class="profile-container">
+                <img class="profile-picture" src="IMG_1184.jpg" alt="">
+                <div class="profile-text-container">
+                    <span class="profile-text">Profile</span>
+                    <i class="fas fa-caret-down"></i>
+                </div>
+                 <div class="toggle">
+                    <i class="fas fa-moon toggle-icon"></i>
+                    <i class="fas fa-sun toggle-icon"></i>
+                    <div class="toggle-ball"></div>
+                </div> -->
+            </div>
+
+        </div>
+                   {% with messages = get_flashed_messages() %}
+         {% if messages %}
+               {% for message in messages %}
+                    <p class="ero">{{ message }}</p>
+               {% endfor %}
+         {% endif %}
+      {% endwith %}
+    </div>
+    <h2 class="htag">Subscribe to watch all content on Duaa-Virtual</h2>
+    <div>
+    <div class="block glow">
+        <div class="iconics"><img src="static/icons/premium-ic - Copy.svg" alt style="margin: 1rem;">
+           </div>
+
+        <div class="newline">
+            <h2 class="lines-active">Watch Ad-Free with D-Virtual!</h2>
+
+            <h3 class="lines"><span style="margin-right: 15px;">-</span>200+ Blockbuster Movies</h3>
+            <h3 class="lines"><span style="margin-right: 15px;">-</span>
+                150+ Web Series</h3>
+            <h3 class="lines"><span style="margin-right: 15px;">-</span>
+                Live TV, Before TV</h3>
+            <h3 class="lines"><span style="margin-right: 15px;">-</span>
+                Offer: 40% OFF on premium</h3>
+            <h3 class="lines"><span style="margin-right: 15px;">-</span>
+                Watch on Mobile, TV, Laptop</h3>
+                <span class="vertical-line"></span>
+        </div>
+                <div class="boxs1">
+                    <div class="lpoInfo">LIMITED PERIOD OFFER</div>
+                <div class="percentageInfo">SAVE 25%</div>
+                <div class="heading">
+                    <span class="rupeeSymbol">₹</span><span class="strikethrough">399</span>
+                    <span class="rupeeSymbol black">₹</span><span class="price">299</span></div>
+                    <div class="planDuration">
+                        <div class="headings">12 months plan</div>
+                        <div class="subHeading">
+                            <span>Full HD (1080p)</span>
+
+                        </div>
+                    </div><div class="subHeadings">Start Your Membership Now</div></div>
+
+                <div class="boxs2">
+                    <div class="boxs3"><span class="infoTxt"><i class="fa-solid fa-tv" style="margin-right: 6px;font-size: 11px;"></i>Watch on <strong>3 screens</strong> at the same time (Not applicable for Rentals)</span></div></div>
+                    <div class="modal__wrapper">
+                        <form  action="/register" method="POST">
+                        <div class="modal__container">
+                            <button class="close">&times;</button>
+                            <h2 class="hhh">Register now</h2>
+                            <div class="input-field"><input class="validate"  placeholder="Email" name="email" type="email" required></div>
+                            <div class="input-field"><input class="validate" placeholder="Password" name="password" type="password" id="password"  required> </div>
+                            <!-- <div class="input-field"><input class="validate" placeholder="Password" type="password" id="password"  required> </div> -->
+                            <span class="fafa">
+                                <i class="fa fa-eye" id="eye" onclick="toggle()"></i>
+                               </span>
+                            <div class="action">
+                                <!-- <p class="ppp">Don't have an account? </p>
+                                <button class="btn__purple">Login</button> -->
+<!--                                <a class="aaa2" href="#">Forgot Password?</a>-->
+                        <input type="submit" class="btn6" name="Register_user" value="Register" >
+                        <p class="reg">Already User! <a class="in" href="{{url_for('second')}}">Login</a></p>
+                            </div>
+                        </div>
+                    </form>
+                    </div>
+                    <input type="button" id="trigger"  class="btnx" name="pay" value="Continue" >
+                </div>
+
+    <div class="container">
+
+    <footer>
+        <div class="containers">
+            <div class="box">
+                <h4>Questions?:213334423</h4>
+                <br>
+                <br>
+               <ul>
+                   <li>
+                       <a href="#">FAQ</a>
+                   </li>
+
+                   <li>
+                    <a href="#">Privacy</a>
+                </li>
+
+                <li>
+                    <a href="#">Speed test</a>
+                </li>
+                <li>
+                    <a href="#">Cookie Preferences</a>
+                </li>
+               </ul>
+                <button class="btn btn-primary btn-xl " style="margin-top: 25px;margin-left: 49px;">English</button>
+            </div>
+            <div class="box">
+                <h3>Quik Links</h3>
+                <ul>
+                    <li>
+                        <a href="#">Account</a>
+                    </li>
+                    <li>
+                        <a href="#">About us</a>
+                    </li>
+                    <li>
+                        <a href="#">help center</a>
+                    </li>
+                    <li>
+                        <a href="#">Ways to Watch</a>
+                    </li>
+
+
+                </ul>
+            </div>
+            <div class="box">
+                <h3>Follow Us</h3>
+                <div>
+                    <ul>
+                        <li>
+                            <a href="https://www.facebook.com/Nowmaan_bhai">
+                                <img src="static/icons/facebook.svg" alt="">
+                                <span>Facebook</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://twitter.com/Nowmaan_bhai">
+                                <img src="static/icons/twitter.svg" alt="">
+                                <span>Twitter</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="static/icons/google.svg" alt="">
+                                <span>Google +</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.instagram.com/Nowmaan_bhai/">
+                                <img src="static/icons/instagram.svg" alt="">
+                                <span>Instagram</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="box">
+                <h3>Duaa-Virtual(India)</h3>
+                <ul>
+                    <li>
+                        <a href="#">Inverster Relation</a>
+                    </li>
+                    <li>
+                        <a href="#">Media center</a>
+                    </li>
+                    <li>
+                        <a href="#">Terms of Use</a>
+                    </li>
+
+
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+<footer class="copyright">
+    <div>
+        Copyright © 2021 .All rights reserved by <a href="https://www.instagram.com/Nowmaan_bhai/">Nowmaan_bhai</a>.
+    </div>
+</footer>
+
+
+<!--    <a class="scroll-to-top rounded js-scroll-trigger" href="#page-top">-->
+<!--        <i class="fas fa-angle-up"></i>-->
+<!--    </a>-->
+        </div>
+    </div>
+
+    <script>
+        const trigger = document.querySelector('#trigger');
+    const modalWrapper = document.querySelector('.modal__wrapper');
+    const closeBtn = document.querySelector('.close');
+
+    trigger.addEventListener('click', function(){
+        openModal();
+    });
+
+    closeBtn.addEventListener('click', function(){
+        closeModal();
+    });
+
+    modalWrapper.addEventListener('click', function(e){
+        if(e.target !== this) return;
+        closeModal();
+    });
+
+    document.addEventListener('keydown', function(e){
+        if(e.key === 'Escape') {
+            closeModal();
+        }
+    })
+
+    function openModal() {
+        modalWrapper.classList.add('active');
+    }
+    function closeModal() {
+        modalWrapper.classList.remove('active');
+    }
+    var state=false;
+		function toggle(){
+			if(state){
+				document.getElementById("password"). setAttribute("type","password");
+				document.getElementById("eye").style.color='#7a797e';
+				state=false;
+			}
+			else{
+				document.getElementById("password"). setAttribute("type","text");
+				document.getElementById("eye").style.color='var(--primary)';
+				state=true;
+			}
+		}
+
+
+           </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+    <script src="{{url_for ('static' ,filename='js/app.js')}}"></script>
+    <script src="{{url_for ('static' ,filename='js/main.js')}}"></script>
+</body>
+
+</html>

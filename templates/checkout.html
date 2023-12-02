@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Subscribe to a cool new product</title>
+   <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <script src="https://js.stripe.com/v3/"></script>
+  </head>
+ <button id="checkout-basic">Subscribe Basic</button>
+        {% if hasCustomer %}
+        <button id="manage-billing">Manage Billing</button>
+        {% endif %}
+</html>

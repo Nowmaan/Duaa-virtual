@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="mas.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Master</title>
+</head>
+<body>
+    <header>
+        <a href="#" class="logo"><img src="Master-Movie-1024x512.jpg" alt style="
+            width: 101%;"></a>
+    <div class="toggle"><a href="../../user.html"><img src="toggle.png" alt=""></a></div>
+    </header>
+    <div class="banner">
+        <div class="content">
+            <h2><span>Master</span></h2>
+            <p>
+                Master is a 2021 Indian Tamil-language action thriller film written and directed by Lokesh Kanagaraj. The film was produced by Xavier Britto, under his maiden production house XB Film Creators, and was distributed by S. S. Lait Kumar of Seven Screen Studios.            </p>
+            <a href="#" class="play" onclick="toggle();"><img src="play.png" alt="">watch now</a>
+        </div>
+    </div>
+    <div class="trailer">
+        <video src="Master - Official Teaser _ Thalapathy Vijay _ Anirudh Ravichander _ Lokesh Kanagaraj.mp4" controls="true"></video>
+        <img src="close.png" alt="" class="close" onclick="toggle();">
+    </div>
+    <script>
+        function toggle(){
+        var trailer=document.querySelector('.trailer');
+        let video=document.querySelector('.video');
+        trailer.classList.toggle('active');
+        video.currentTime = 0;
+        video.pause();
+        
+    }
+    </script>
+</body>
+</html>

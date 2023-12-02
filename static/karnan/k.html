@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="k.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karnan</title>
+</head>
+<body>
+    <header>
+        <a href="#" class="logo"><img src=".jpg" alt style="
+            width: 100px;"></a>
+    <div class="toggle"><a href="../../user.html"><img src="toggle.png" alt=""></a></div>
+    </header>
+    <div class="banner">
+        <div class="content">
+            <h2><span>Karnan</span></h2>
+            <p>
+                Karnan is a 2021 Indian Tamil-language action drama film directed by Mari Selvaraj, and produced by Kalaipuli S. Thanu under his V Creations banner. The film stars Dhanush, Lal, Yogi Babu, Azhagam Perumal, Natarajan Subramaniam, Rajisha Vijayan, Gouri G. Kishan and Lakshmi Priya Chandramouli. It marks the Tamil debut of Rajisha Vijayan. The storyline is loosely influenced from the 1995 Kodiyankulam caste violence that happened in Thoothukudi district.
+            </p>
+            <a href="#" class="play" onclick="toggle();"><img src="play.png" alt="">watch now</a>
+        </div>
+    </div>
+    <div class="trailer">
+        <video src="Karnan Official Teaser _ Dhanush _ Mari Selvaraj _ Santhosh Narayanan _ V Creations.mp4" controls="true"></video>
+        <img src="close.png" alt="" class="close" onclick="toggle();">
+    </div>
+    <script>
+        function toggle(){
+        var trailer=document.querySelector('.trailer');
+        let video=document.querySelector('.video');
+        trailer.classList.toggle('active');
+        video.currentTime = 0;
+        video.pause();
+    }
+    </script>
+</body>
+</html>

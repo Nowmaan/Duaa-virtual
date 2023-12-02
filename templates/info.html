@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+	<link rel="stylesheet" href="{{url_for('static',filename='styleinfo.css')}}">
+
+    <style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+    width: 185px;
+}
+
+tr:nth-child(even) {
+  background-color: var(--main-color);
+}
+</style>
+</head>
+
+
+<body>
+  <div class="customers"  style="
+    margin: 0px 40px;
+">
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Movie premiere Action</h3>
+
+<!--                            <button>Show everything<span class="las la-arrow-right">-->
+<!--                            </span></button>-->
+                        </div>
+            {% for x in x %}
+                        <div class="card-body">
+<table style="margin-bottom:5px">
+    </br>
+  <tr>
+    <th style="width: 258px;">email</th>
+    <th>Name</th>
+    <th>Date</th>
+        <th>Time</th>
+        <th>Persons</th>
+        <th>Year</th>
+  </tr>
+  <tr>
+    <td>{{x["email"]}}</td>
+    <td>{{x["Name"]}}</td>
+    <td>{{x["date"]}}</td>
+      <td>{{x["time"]}}</td>
+    <td>{{x["type"]}}</td>
+      <td>{{x["year"]}}</td>
+  </tr>
+
+</table>
+<div style="    border: 2px solid #dddddd;
+    width: 100%;
+    height: 100px;
+">
+ <div style="margin-left:7px;">
+     <h4 style="margin-bottom:6px;">Message :</h4>
+     <p style="color:#800000;font-family:courier;margin-left:90px;font-weight:700 ">{{x["message"]}}</p>
+        </div>
+</div>
+                            <br>
+                            <br>
+                            <hr style="
+    width: 50%;
+    margin-left: 20rem;
+        margin-bottom: 20px;
+">
+           {% endfor %}
+
+<!--                            <div class="customer">-->
+<!--                                <div class="info">-->
+<!--                                    <img src="avatars/1.png" width="40px" height="40px" alt="">-->
+<!--                                    <div>-->
+<!--                                        <h4>{{x["email"]}}</h4>-->
+<!--                                        <small>{{x["Name"]}}</small>-->
+<!--                                        <small>{{x["date"]}}</small>-->
+<!--                                        <small>{{x["time"]}}</small>-->
+<!--&lt;!&ndash;                                        <small>{{x["message"]}}</small>&ndash;&gt;-->
+<!--                                        <small>{{x["type"]}}</small>-->
+<!--                                        <small>{{x["year"]}}</small>-->
+
+<!--                                    </div>-->
+<!--                                </div>-->
+                            </div>
+
+
+
+
+
+
+
+
+                        </div>
+                    </div>
+                </div>
+</body>
+</html>

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Queries</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{url_for ('static', filename='styleyoung.css')}}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
+    <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+  <style>.container-time {
+	background-color: rgba(0, 0, 0, .95);
+	padding: 50px;
+	outline: 3px dashed #998100;
+	outline-offset: -30px;
+	text-align: center;
+}
+.heading {
+	font-size: 26px;
+    text-transform: uppercase;
+    line-height: 34px;
+}
+
+.heading-days {
+	color:#998100;
+	font-size: 16px;
+
+}
+
+.heading-phone {
+	font-size: 20px;
+}
+.container-form {
+	padding: 20px 0;
+	margin: 0 auto;
+	color: #000;
+}
+.name-item div input {
+        width:97%;
+        }
+.name-item div label {
+        display:block;
+        padding-bottom:5px;
+        }
+        select {
+    width: 100%;
+    padding: 7px 0;
+    background: transparent;
+}
+.items i {
+        right: 9px;
+    top: 10px;
+    z-index: 1;
+    font-size: 13px;
+}
+</style>
+  </head>
+
+  <body>
+    <div class="wrapper" style="
+    margin-top: -25px;
+">
+
+    <div class="testbox" style=" margin-top: 3rem;">
+      </br>
+<div class="container-time" style="
+    width: 50rem;
+">
+				<h2 class="heading">Time Open for new Talent in INDIA</h2>
+				<h3 class="heading-days">24/7</h3>
+				<p>Response with in 2 days </p>
+				<p>Meet link will be sent in your mail id</p>
+
+				<h3 class="heading-days">Be powered,Your talent determines what you can do,
+Talent is like electricity</h3>
+				<p style="
+    margin-top: -11px;
+">Be genuine - All Officials should be in meet</p>
+				<p>Only consider above 30 min play duration </p>
+
+				<hr>
+
+				<h4 class="heading-phone">Call Us: (123) 45-45-456</h4>
+		</div>
+ <form action="/talents" method="post">
+<!--    <h1>insert</h1>-->
+<input type="email" placeholder="email" name="email" required>
+<input type="text" placeholder="Name" name="Name" required>
+     <div class="item">
+<input type="date" placeholder="Date" name="date" required>
+      <i class="fas fa-calendar-alt" style="
+    right: 9px;
+    top: 10px;
+    z-index: 1;
+    font-size: 13px;
+"></i></div>
+<input type="time" placeholder="Time" name="time" required>
+<input type="text" placeholder="Short about movie with minimum 150 words"  style="
+    padding-bottom: 85px;
+" name="message" required>
+      <div class="item">
+        <div class="name-item">
+        <div>
+          <select  name="type"style="margin-bottom: 10px;width: 213.3%;">
+            <option  selected  disabled selected>How many People?</option>
+               <option value="1 person">1 person</option>
+			<option value="2 persons">2 persons</option>
+			<option value="3 persons">3 persosn</option>
+			<option value="4 persons">4 persons</option>
+			<option value="5 persons">5 persons</option>
+			<option value="5+ persons">5+ persons</option>
+          </select>
+        </div>
+
+    </div>
+  </div>
+<!--        <div class="name-item">-->
+<!--          <select  name="type" style="margin-top: 27px;">-->
+<!--            <option  selected  disabled selected>How many People?</option>-->
+<!--            <option value="1">1 person</option>-->
+<!--			<option value="2">2 persons</option>-->
+<!--			<option value="3">3 persosn</option>-->
+<!--			<option value="4">4 persons</option>-->
+<!--			<option value="5">5 persons</option>-->
+<!--			<option value="5+">5+ persons</option>-->
+<!--          </select>-->
+<!--        </div>-->
+    <input type="text" placeholder="year of exprience" name="year" required>
+<button>Insert</button>
+    </form>
+      </br>
+
+    </div>
+</div>
+
+<script>
+  var dd_main = document.querySelector(".dd_main");
+
+  dd_main.addEventListener("click", function(){
+    this.classList.toggle("active");
+  })
+</script>
+<script>const form = document.getElementById('form');
+  const username = document.getElementById('username');
+  const email = document.getElementById('email');
+  const password = document.getElementById('password');
+  const password2 = document.getElementById('password2');
+
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+
+    checkInputs();
+  });
+
+  function checkInputs() {
+    // trim to remove the whitespaces
+    const usernameValue = username.value.trim();
+    const emailValue = email.value.trim();
+    const passwordValue = password.value.trim();
+    const password2Value = password2.value.trim();
+
+    if(usernameValue === '') {
+      setErrorFor(username, 'Username cannot be blank');
+    } else {
+      setSuccessFor(username);
+    }
+
+    if(emailValue === '') {
+      setErrorFor(email, 'Email cannot be blank');
+    } else if (!isEmail(emailValue)) {
+      setErrorFor(email, 'Not a valid email');
+    } else {
+      setSuccessFor(email);
+    }
+
+    if(passwordValue === '') {
+      setErrorFor(password, 'Password cannot be blank');
+    } else {
+      setSuccessFor(password);
+    }
+
+    if(password2Value === '') {
+      setErrorFor(password2, 'Password2 cannot be blank');
+    } else if(passwordValue !== password2Value) {
+      setErrorFor(password2, 'Passwords does not match');
+    } else{
+      setSuccessFor(password2);
+    }
+  }
+
+  function setErrorFor(input, message) {
+    const formControl = input.parentElement;
+    const small = formControl.querySelector('small');
+    formControl.className = 'form-control error';
+    small.innerText = message;
+  }
+
+  function setSuccessFor(input) {
+    const formControl = input.parentElement;
+    formControl.className = 'form-control success';
+  }
+
+  function isEmail(email) {
+    return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email);
+  }
+
+
+  </script>
+  <script>// SOCIAL PANEL JS
+    const floating_btn = document.querySelector('.floating-btn');
+    const close_btn = document.querySelector('.close-btn');
+    const social_panel_container = document.querySelector('.social-panel-container');
+
+    floating_btn.addEventListener('click', () => {
+      social_panel_container.classList.toggle('visible')
+    });
+
+    close_btn.addEventListener('click', () => {
+      social_panel_container.classList.remove('visible')
+    });</script>
+
+  </body>
+</html>

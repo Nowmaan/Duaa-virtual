@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Queries</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{url_for ('static', filename='styleadmin_demo.css')}}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
+    <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+  </head>
+  <body>
+    <div class="wrapper">
+
+ <p class="para" >User Adding Management</p>
+             <hr/>
+    <div class="testbox" style=" margin-top: 3rem;">
+      </br>
+ <form action="/insert" method="POST">
+      <fieldset>
+      <legend>Insert User</legend>
+      <div class="item">
+
+      <!--<label for="name">Name<span>*</span></label>-->
+      <div class="name-item">
+      <input  type="email" name="email" placeholder="Email" required/>
+      <input  type="text" name="password" placeholder="Password" min="3" max="8" required/>
+      </div>
+      </div>
+    </fieldset>
+<div class="btn-block">
+      <button type="submit" >Insert User</button>
+      </div>
+</form>
+      </br>
+ <form action="/update" method="POST">
+          <fieldset>
+      <legend>Update User</legend>
+      <div class="item">
+
+      <!--<label for="name">Name<span>*</span></label>-->
+      <div class="name-item">
+       <input id="email" type="email" name="email" placeholder="Email" required/>
+      <input id="pass" type="text" name="password" placeholder="Password" min="3" max="8" required/>
+      </div>
+      </div>
+ <div class="item">
+
+      <!--<label for="name">Name<span>*</span></label>-->
+      <div class="name-item">
+      <input id="name" type="text" name="Name" placeholder="Name" required/>
+      <input id="bdate" type="date" name="birthday" placeholder="birthday" required/>
+          <i class="fas fa-calendar-alt" style="right: 2%;top: 12px;z-index: 1;font-size: 14px;"></i>
+      </div>
+      </div>
+<div class="item">
+
+      <!--<label for="name">Name<span>*</span></label>-->
+      <div class="name-item">
+      <input id="pho" type="number" name="pho" placeholder="Phone Number" required/>
+      <input type="text" name="city" placeholder="city" required/>
+      </div>
+      </div>
+<div class="item">
+
+      <!--<label for="name">Name<span>*</span></label>-->
+      <div class="name-item">
+      <input  type="text" name="country" placeholder="Country" required/>
+      <input  type="number" name="last_update" placeholder="last_update" max="1" required/>
+      </div>
+      </div>
+<div class="item">
+
+      <!--<label for="name">Name<span>*</span></label>-->
+      <div class="name-item">
+      <input  type="text" name="state" placeholder="state" required/>
+      </div>
+      </div>
+
+    </fieldset>
+<div class="btn-block">
+      <button type="submit" >Update User</button>
+      </div>
+</form>
+      </br>
+ <form action="/delete" method="POST">
+      <fieldset>
+      <legend>Delete User</legend>
+      <div class="item">
+
+      <!--<label for="name">Name<span>*</span></label>-->
+      <div class="name-item">
+      <input type="email" name="email" placeholder="Email" required/>
+      </div>
+      </div>
+    </fieldset>
+        <div class="btn-block">
+      <button type="submit" >Delete User</button>
+      </div>
+    </form>
+    </div>
+</div>
+
+<script>
+  var dd_main = document.querySelector(".dd_main");
+
+  dd_main.addEventListener("click", function(){
+    this.classList.toggle("active");
+  })
+</script>
+<script>const form = document.getElementById('form');
+  const username = document.getElementById('username');
+  const email = document.getElementById('email');
+  const password = document.getElementById('password');
+  const password2 = document.getElementById('password2');
+
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+
+    checkInputs();
+  });
+
+  function checkInputs() {
+    // trim to remove the whitespaces
+    const usernameValue = username.value.trim();
+    const emailValue = email.value.trim();
+    const passwordValue = password.value.trim();
+    const password2Value = password2.value.trim();
+
+    if(usernameValue === '') {
+      setErrorFor(username, 'Username cannot be blank');
+    } else {
+      setSuccessFor(username);
+    }
+
+    if(emailValue === '') {
+      setErrorFor(email, 'Email cannot be blank');
+    } else if (!isEmail(emailValue)) {
+      setErrorFor(email, 'Not a valid email');
+    } else {
+      setSuccessFor(email);
+    }
+
+    if(passwordValue === '') {
+      setErrorFor(password, 'Password cannot be blank');
+    } else {
+      setSuccessFor(password);
+    }
+
+    if(password2Value === '') {
+      setErrorFor(password2, 'Password2 cannot be blank');
+    } else if(passwordValue !== password2Value) {
+      setErrorFor(password2, 'Passwords does not match');
+    } else{
+      setSuccessFor(password2);
+    }
+  }
+
+  function setErrorFor(input, message) {
+    const formControl = input.parentElement;
+    const small = formControl.querySelector('small');
+    formControl.className = 'form-control error';
+    small.innerText = message;
+  }
+
+  function setSuccessFor(input) {
+    const formControl = input.parentElement;
+    formControl.className = 'form-control success';
+  }
+
+  function isEmail(email) {
+    return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email);
+  }
+
+
+  </script>
+  <script>// SOCIAL PANEL JS
+    const floating_btn = document.querySelector('.floating-btn');
+    const close_btn = document.querySelector('.close-btn');
+    const social_panel_container = document.querySelector('.social-panel-container');
+
+    floating_btn.addEventListener('click', () => {
+      social_panel_container.classList.toggle('visible')
+    });
+
+    close_btn.addEventListener('click', () => {
+      social_panel_container.classList.remove('visible')
+    });</script>
+
+  </body>
+</html>

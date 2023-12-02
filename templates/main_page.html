@@ -1,0 +1,536 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for ('static', filename='stylemain_page.css')}}">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&family=Sen:wght@400;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <title>Duaa-Virtual-main</title>
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="navbar-container">
+            <div class="logo-container">
+                <a href="" class="logo">Duaa-Virtual</a>
+            </div>
+            <div class="menu-container">
+                <ul class="menu-list">
+                    <a href="#"class="menu-list-item active">Home</a>
+                    <a href="#"class="menu-list-item">Movies</a>
+                    <a href="#"class="menu-list-item">Series</a>
+                    <a href="#"class="menu-list-item">Popular</a>
+                    <a href="#"class="menu-list-item">Trends</a>
+
+                </ul>
+
+            </div>
+            <div class="cont">
+                <form action="" class="search-bar">
+                    <input type="text" placeholder="search" name="" id="">
+                    <button type="submit"><i class="left-menu-icons fas fa-search"></i></button>
+                </form>
+            </div>
+            <!-- <a href="#" ><i class="left-menu-icons fas fa-search"></i></a> -->
+
+            <div class="modal__wrapper">
+                <form action="/login" method="POST">
+                <div class="modal__container">
+                    <button class="close">&times;</button>
+                    <h2 class="hhh">Login now</h2>
+                    <div class="input-field"><input class="validate" name="email" placeholder="Email" type="email" required></div>
+                    <div class="input-field"><input class="validate" name="user" placeholder="Password" type="password" id="password"  required> </div>
+                    <span class="fafa">
+                        <i class="fa fa-eye" id="eye" onclick="toggle()"></i>
+                       </span>
+                    <div class="action">
+                        <!-- <p class="ppp">Don't have an account? </p>
+                        <button class="btn__purple">Login</button> -->
+                        <a class="aaa2" href="{{url_for('forget')}}">Forgot Password?</a>
+				<input type="submit" class="btn6" name="login_user" value="Login" >
+				<p class="reg">New to D-Virtual? <a class="in" href="{{url_for('first')}}">Register</a></p>
+                    </div>
+                </div>
+            </form>
+            </div>
+
+                <a href="#"  id="trigger" class="menu-list-item active">Login</a>
+
+            <div class="gh"><a href="{{url_for('first')}}" class="btn-xl">Buy plan</a></div>
+
+            <!-- <div class="profile-container">
+                <img class="profile-picture" src="IMG_1184.jpg" alt="">
+                <div class="profile-text-container">
+                    <span class="profile-text">Profile</span>
+                    <i class="fas fa-caret-down"></i>
+                </div>
+                 <div class="toggle">
+                    <i class="fas fa-moon toggle-icon"></i>
+                    <i class="fas fa-sun toggle-icon"></i>
+                    <div class="toggle-ball"></div>
+                </div> -->
+            </div>
+
+        </div>
+              {% with messages = get_flashed_messages() %}
+         {% if messages %}
+               {% for message in messages %}
+                    <p class="ero">{{ message }}</p>
+               {% endfor %}
+         {% endif %}
+      {% endwith %}
+    </div>
+    <div class="sidebar">
+       <!-- <a href="#" ><i class="left-menu-icon fas fa-search"></i></a> -->
+       <a href="#" ><i class="left-menu-icon fas fa-home"></i></a>
+        <a href="#" ><i class="left-menu-icon fas fa-users"></i></a>
+        <a href="#" ><i class="left-menu-icon fas fa-bookmark"></i></a>
+        <a href="#" ><i class="left-menu-icon fas fa-tv"></i></a>
+        <a href="#" ><i class="left-menu-icon fas fa-hourglass-start"></i></a>
+        <a href="#" ><i class="left-menu-icon fas fa-shopping-cart"></i></a>
+    </div>
+
+    <div class="container">
+
+        <div class="content-container">
+            <div class="featured-content"
+                style="background-image: linear-gradient(to bottom, rgba(0,0,0,0), #151515), url('static/vikram/20220507_195928.jpg');background-size: 100%; background-repeat: no-repeat;">
+
+                <img class="featured-title" src="static/vikram/indian_2_vikram_ukvnBpfhdebii-fococlipping-undefined.png" alt="">
+                <p class="featured-desc">Vikram is an upcoming Indian Tamil action thriller film written and directed by Lokesh Kanagaraj and produced by Raaj Kamal Films International.</p>
+                <a class="btn btn-primary btn-xl js-scroll-trigger" onclick="checker()" href="{{url_for('first')}}" >Watch Now</a>
+
+            </div>
+            <div class="movie-list-container">
+                <h1 class="movie-list-title">Top Tamil movies</h1>
+                <div class="movie-list-wrapper">
+                    <div class="movie-list">
+                        <div class="movie-list-item">
+
+                            <span class="movie-list-item-title">Master</span>
+                            <a href="{{url_for('first')}}" onclick="checker()"><img class="movie-list-item-img"
+                                src="static/master/mas.jpg"></a>
+
+                        </div>
+                        <div class="movie-list-item">
+
+                            <span class="movie-list-item-title" >Bigil</span>
+                            <a href="{{url_for('first')}}" onclick="checker()"><img class="movie-list-item-img"
+                                src="static/Bigil/b.jpg"></a>
+
+                        </div>
+                        <div class="movie-list-item">
+
+                            <span class="movie-list-item-title" >Viswasam</span>
+                            <a href="{{url_for('first')}}" onclick="checker()"><img class="movie-list-item-img"
+                                src="static/viswasam/1909140.jpg"></a>
+
+                        </div>
+                        <div class="movie-list-item">
+
+                            <span class="movie-list-item-title">Nerkonda parvai</span>
+                            <a href="{{url_for('first')}}" onclick="checker()"><img class="movie-list-item-img"
+                                src="static/ner/Ajiths-Nerkonda-Paarvai-turns-1-Shraddha-Srinath-appreciates-actor.jpg"></a>
+
+                        </div>
+                        <div class="movie-list-item">
+
+                            <span class="movie-list-item-title">Darbar</span>
+                            <a href="{{url_for('first')}}" onclick="checker()"><img class="movie-list-item-img"
+                                src="static/Compressed Images/Darbar-compressed.jpg"></a>
+
+                        </div>
+                        <div class="movie-list-item">
+
+                            <span class="movie-list-item-title">Petta</span>
+                            <a href="{{url_for('first')}}" onclick="checker()"><img class="movie-list-item-img"
+                                src="static/petta/wp4092643.jpg"></a>
+
+                        </div>
+                        <div class="movie-list-item">
+
+                            <span class="movie-list-item-title">Karnan</span>
+                            <a href="{{url_for('first')}}" onclick="checker()"><img class="movie-list-item-img"
+                                src="static/karnan/wp8635667.jpg"></a>
+
+                        </div>
+                        <div class="movie-list-item">
+
+                            <span class="movie-list-item-title" >Jagame</span>
+                            <a href="{{url_for('first')}}" onclick="checker()"><img class="movie-list-item-img"
+                                src="static/jaga/wp7453450-jagame-thandhiram-wallpapers.jpg"></a>
+
+                        </div>
+
+                    </div>
+                    <i class="fas fa-chevron-right arrow"></i>
+                </div>
+            </div>
+            <div class="movie-list-container">
+                <h1 class="movie-list-title">Marvel movies</h1>
+                <div class="movie-list-wrapper">
+                    <div class="movie-list">
+                        <div class="movie-list-item">
+                            <span class="movie-list-item-title">AvengersInfinityWar</span>
+                            <a href="{{url_for('first')}}" onclick="checker()"><img class="movie-list-item-img" src="static/Compressed Images/AvengersInfinityWar-compressed.jpg">
+                            </a>
+                        </div> <div class="movie-list-item">
+                            <span class="movie-list-item-title">Venom2</span>
+                            <a href="{{url_for('first')}}" onclick="checker()"><img class="movie-list-item-img" src="static/Compressed Images/Venom2-compressed.jpg">
+                            </a>
+                        </div>
+                        <div class="movie-list-item">
+                            <span class="movie-list-item-title" >WonderWomen</span>
+                            <a href="{{url_for('first')}}" onclick="checker()"><img class="movie-list-item-img" src="static/Compressed Images/WonderWoman-compressed.jpg">
+                            </a>
+                        </div>
+                        <div class="movie-list-item">
+                            <span class="movie-list-item-title">BlackPanther</span>
+                            <a href="{{url_for('first')}}" onclick="checker()"><img class="movie-list-item-img" src="static/Compressed Images/54041.jpg">
+                            </a>
+                        </div>
+                        <div class="movie-list-item">
+                            <span class="movie-list-item-title">CaptainMarvel</span>
+                            <a href="{{url_for('first')}}" onclick="checker()"><img class="movie-list-item-img" src="static/Compressed Images/Captain Marvel HD Wallpapers Download In 4K   Whats Images.png">
+                            </a>
+                        </div>
+                        <div class="movie-list-item">
+                            <span class="movie-list-item-title">Deadpool2</span>
+                            <a href="{{url_for('first')}}" onclick="checker()"><img class="movie-list-item-img" src="static/Compressed Images/Deadpool2-compressed.jpg">
+                            </a>
+                        </div>
+                        <div class="movie-list-item">
+                            <span class="movie-list-item-title">DoctorStrange</span>
+                            <a href="{{url_for('first')}}" onclick="checker()"><img class="movie-list-item-img" src="static/Compressed Images/DoctorStrange-compressed.jpg">
+                            </a>
+                        </div>
+                        <div class="movie-list-item">
+                            <span class="movie-list-item-title" >AvengersEndGame</span>
+                            <a href="{{url_for('first')}}" onclick="checker()"><img class="movie-list-item-img" src="static/Compressed Images/AvengersEndGame-compressed.jpg">
+                            </a>
+                        </div>
+                    </div>
+                    <i class="fas fa-chevron-right arrow"></i>
+                </div>
+            </div>
+            <div class="featured-content"
+                style="background: linear-gradient(to bottom, rgba(0,0,0,0), #151515), url('static/BlackWidow/wp2037259-black-widow-hd-wallpapers.jpg');background-position: center;background-size: 66rem;">
+                <img class="featured-title"  src="static/BlackWidow/logo.png" alt style="
+                width: 96px;">
+                <p class="featured-desc" style="margin-top: 100px;">BlackWidow</p>
+                <a class="btn btn-primary btn-xl js-scroll-trigger" onclick="checker()" href="{{url_for('first')}}">Watch Trailer</a>
+            </div>
+            <div class="movie-list-container">
+                <h1 class="movie-list-title">Bollywood movies</h1>
+                <div class="movie-list-wrapper">
+                    <div class="movie-list">
+                        <div class="movie-list-item">
+                            <span class="movie-list-item-title">Kabirsingh</span>
+                            <a href="{{url_for('first')}}" onclick="checker()"><img class="movie-list-item-img" src="static/Compressed Images/KabirSingh-compressed.jpg">
+                            </a>
+                        </div>
+                        <div class="movie-list-item">
+                            <span class="movie-list-item-title">Shivaay</span>
+                            <a href="{{url_for('first')}}" onclick="checker()"><img class="movie-list-item-img" src="static/Compressed Images/Shivaay-compressed.jpg">
+                            </a>
+                        </div>
+                        <div class="movie-list-item">
+                            <span class="movie-list-item-title">Padmaavat</span>
+                            <a href="{{url_for('first')}}" onclick="checker()"><img class="movie-list-item-img" src="static/Compressed Images/Padmaavat-compressed.jpg">
+                            </a>
+                        </div>
+                        <div class="movie-list-item">
+                            <span class="movie-list-item-title">Drive</span>
+                            <a href="{{url_for('first')}}" onclick="checker()"><img class="movie-list-item-img" src="static/Compressed Images/Drive-compressed.jpg">
+                            </a>
+                        </div>
+                        <div class="movie-list-item">
+                            <span class="movie-list-item-title">Dhaakad</span>
+                            <a href="{{url_for('first')}}" onclick="checker()"><img class="movie-list-item-img" src="static/Compressed Images/Dhaakad-compressed.jpg">
+                            </a>
+                        </div>
+                        <div class="movie-list-item">
+                            <span class="movie-list-item-title">Bahubali2</span>
+                            <a href="{{url_for('first')}}" onclick="checker()"><img class="movie-list-item-img" src="static/Compressed Images/Bahubali2-compressed.jpg">
+                            </a>
+                        </div>
+
+                    </div>
+                    <i class="fas fa-chevron-right arrow"></i>
+                </div>
+            </div>
+            <div class="our-story-card animation-card watchOnTv" style="padding: 70px 45px;" data-uia-our-story="watchOnTv" data-uia="our-story-card">
+                <div class="animation-card-container">
+                    <div class="our-story-card-text">
+                        <h1 class="our-story-card-title" data-uia="animation-card-title">DUAA-VIRTUAL</h1>
+                        <h2 class="our-story-card-subtitle" data-uia="our-story-card-subtitle">Watch on smart TVs, PlayStation, Xbox, Chromecast, Apple TV, Blu-ray players and more.</h2>
+                    </div>
+                    <div class="our-story-card-img-container">
+                        <div class="our-story-card-animation-container">
+                            <img alt="" class="our-story-card-img" src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/tv.png" data-uia="our-story-card-img">
+                            <div class="our-story-card-animation"><video class="our-story-card-video" autoplay="" playsinline="" muted="" loop=""><source src="static/Project.mp4" type="video/mp4"></video>
+                                <!-- <div class="our-story-card-animation-text">
+
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="center-pixel" style="position:absolute">
+                    </div> -->
+                </div>
+            </div>
+            <div class="movie-list-container">
+                <h1 class="movie-list-title" style="padding-top:65px;">Hollywood Movies</h1>
+                <div class="movie-list-wrapper">
+                    <div class="movie-list">
+                        <div class="movie-list-item">
+                            <span class="movie-list-item-title">Aladdin</span>
+                            <a href="{{url_for('first')}}" onclick="checker()"><img class="movie-list-item-img" src="static/Compressed Images/Aladdin-compressed.jpg">
+                            </a>
+                        </div>
+                        <div class="movie-list-item">
+                            <span class="movie-list-item-title">SpiderManFarFromHome</span>
+                            <a href="{{url_for('first')}}" onclick="checker()"><img class="movie-list-item-img" src="static/Compressed Images/AmzingSpiderMan2-compressed.jpg"></a>
+                        </div>
+                        <div class="movie-list-item">
+                            <span class="movie-list-item-title">Inception</span>
+                            <a href="{{url_for('first')}}" onclick="checker()"><img class="movie-list-item-img" src="static/Compressed Images/Inception-compressed.jpg">
+                            </a>
+                        </div>
+                        <div class="movie-list-item">
+                            <span class="movie-list-item-title">joker</span>
+                            <a href="{{url_for('first')}}" onclick="checker()"><img class="movie-list-item-img" src="static/Compressed Images/Joker-compressed.jpg">
+                            </a>
+                        </div>
+                        <div class="movie-list-item">
+                            <span class="movie-list-item-title">TheBatman</span>
+                            <a href="{{url_for('first')}}" onclick="checker()"><img class="movie-list-item-img" src="static/Compressed Images/TheBatman-compressed.jpg">
+                            </a>
+                        </div>
+                        <div class="movie-list-item">
+                            <span class="movie-list-item-title">JohnWick3</span>
+                            <a href="{{url_for('first')}}" onclick="checker()"><img class="movie-list-item-img" src="static/Compressed Images/JohnWick-compressed.jpg">
+                            </a>
+                        </div>
+                    </div>
+                    <i class="fas fa-chevron-right arrow"></i>
+                </div>
+            </div>
+            <div class="movie-list-container">
+                <h1 class="movie-list-title" style="padding-top:65px;">Kids Special</h1>
+                <div class="movie-list-wrapper">
+                    <div class="movie-list">
+                        <div class="movie-list-item">
+                            <span class="movie-list-item-title">Incredibles2</span>
+                            <a href="{{url_for('first')}}" onclick="checker()"><img class="movie-list-item-img" src="static/Compressed Images/Incredibles2-compressed.jpg">
+                            </a>
+                        </div>
+                        <div class="movie-list-item">
+                            <span class="movie-list-item-title">ToyStory</span>
+                            <a href="{{url_for('first')}}" onclick="checker()"><img class="movie-list-item-img" src="static/Compressed Images/ToyStory-compressed.jpg">
+                            </a></div>
+                        <div class="movie-list-item">
+                            <span class="movie-list-item-title">SonictheHedgehog</span>
+                            <a href="{{url_for('first')}}" onclick="checker()"><img class="movie-list-item-img" src="static/Compressed Images/SonictheHedgehog-compressed.jpg">
+                            </a>
+                        </div>
+                        <div class="movie-list-item">
+                            <span class="movie-list-item-title">PeterRabbit2TheRunaway</span>
+                            <a href="{{url_for('first')}}" onclick="checker()"><img class="movie-list-item-img" src="static/Compressed Images/PeterRabbit2TheRunaway-compressed.jpg">
+                            </a>
+                        </div>
+
+                    </div>
+                    <i class="fas fa-chevron-right arrow"></i>
+                </div>
+            </div>
+            <section class="featured-content"
+    style="background: linear-gradient(to bottom, rgba(0,0,0,0), #151515), url('static/Compressed Images/IN-kids-30Jan._CB1517304519_.jpg');">
+    <img class="featured-title"  src="static/output-onlinepngtools.png" alt style="
+    width: 200px;">
+    <p class="featured-descl" >Ready to premiere your movie in Duaa-Virtual ? click subscribe and enter your movie details.</p>
+
+
+        <div class="input-wrap">
+
+<!--    <input type="email" name="email" placeholder="E-mail" required>-->
+                        <a class="btn-xl" href="{{url_for('fourth')}}">Subscribe</a>
+                    </div>
+
+
+    </section>
+             </div>
+    <footer>
+        <div class="containers">
+            <div class="box">
+                <h4>Questions?:213334423</h4>
+                <br>
+                <br>
+               <ul>
+                   <li>
+                       <a href="#">FAQ</a>
+                   </li>
+
+                   <li>
+                    <a href="#">Privacy</a>
+                </li>
+
+                <li>
+                    <a href="#">Speed test</a>
+                </li>
+                <li>
+                    <a href="#">Cookie Preferences</a>
+                </li>
+               </ul>
+                <a class="btn btn-primary btn-xl " href="{{url_for('admin1')}}" style="padding: 7px 19px;margin-left: 42px;">Admin</a>
+            </div>
+            <div class="box">
+                <h3>Quik Links</h3>
+                <ul>
+                    <li>
+                        <a href="#">Account</a>
+                    </li>
+                    <li>
+                        <a href="#">About us</a>
+                    </li>
+                    <li>
+                        <a href="#">help center</a>
+                    </li>
+                    <li>
+                        <a href="#">Ways to Watch</a>
+                    </li>
+
+
+                </ul>
+            </div>
+            <div class="box">
+                <h3>Follow Us</h3>
+                <div>
+                    <ul>
+                        <li>
+                            <a href="https://www.facebook.com/Nowmaan_bhai">
+                                <img src="static/icons/facebook.svg" alt="">
+                                <span>Facebook</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://twitter.com/Nowmaan_bhai">
+                                <img src="static/icons/twitter.svg" alt="">
+                                <span>Twitter</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="static/icons/google.svg" alt="">
+                                <span>Google +</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.instagram.com/Nowmaan_bhai/">
+                                <img src="static/icons/instagram.svg" alt="">
+                                <span>Instagram</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="box">
+                <h3>Duaa-Virtual(India)</h3>
+                <ul>
+                    <li>
+                        <a href="#">Inverster Relation</a>
+                    </li>
+                    <li>
+                        <a href="#">Media center</a>
+                    </li>
+                    <li>
+                        <a href="#">Terms of Use</a>
+                    </li>
+
+
+                </ul>
+        </div>
+        </div>
+    </footer>
+
+<footer class="copyright">
+    <div>
+        Copyright © 2021 .All rights reserved by <a href="https://www.instagram.com/Nowmaan_bhai/">Nowmaan_bhai</a>.
+    </div>
+</footer>
+
+
+<!--    <a class="scroll-to-top rounded js-scroll-trigger" href="#page-top">-->
+<!--        <i class="fas fa-angle-up"></i>-->
+<!--    </a>-->
+        </div>
+    </div>
+    <script>
+        const trigger = document.querySelector('#trigger');
+    const modalWrapper = document.querySelector('.modal__wrapper');
+    const closeBtn = document.querySelector('.close');
+
+    trigger.addEventListener('click', function(){
+        openModal();
+    });
+
+    closeBtn.addEventListener('click', function(){
+        closeModal();
+    });
+
+    modalWrapper.addEventListener('click', function(e){
+        if(e.target !== this) return;
+        closeModal();
+    });
+
+    document.addEventListener('keydown', function(e){
+        if(e.key === 'Escape') {
+            closeModal();
+        }
+    })
+
+    function openModal() {
+        modalWrapper.classList.add('active');
+    }
+    function closeModal() {
+        modalWrapper.classList.remove('active');
+    }
+    var state=false;
+		function toggle(){
+			if(state){
+				document.getElementById("password"). setAttribute("type","password");
+				document.getElementById("eye").style.color='#7a797e';
+				state=false;
+			}
+			else{
+				document.getElementById("password"). setAttribute("type","text");
+				document.getElementById("eye").style.color='var(--primary)';
+				state=true;
+			}
+		}
+
+
+           </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+    <script src="{{url_for ('static' ,filename='js/app.js')}}"></script>
+    <script src="{{url_for ('static' ,filename='js/main.js')}}"></script>
+<script>
+    function checker()
+    {
+        var result = confirm('Register to view the content?');
+        if (result == false){
+            event.preventDefault();
+        }
+    }
+</script>
+</body>
+
+</html>
